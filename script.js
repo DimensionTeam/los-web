@@ -29,6 +29,7 @@ const RING_FORCE = 0.45;
 const RING_MAX = 4;
 const RING_REACH = 45;
 const REVEAL_RATIO = 0.25;
+const LATE_REVEAL_RATIO = 0.7;
 const VIDEO_PRELOAD_MARGIN = '90% 0px';
 const START_DELAY_MS = 800;
 const SLIDE_MS = 850;
@@ -140,7 +141,10 @@ const pagingAvailable = () => {
 
 const panelStops = () => {
   const offset = topbar.offsetHeight;
-  return panels.map((panel) => panel.getBoundingClientRect().top + window.scrollY - offset);
+  return panels.map((panel) => {
+    const margin = parseFloat(getComputedStyle(panel).scrollMarginTop) || 0;
+    return panel.getBoundingClientRect().top + window.scrollY - offset - margin;
+  });
 };
 
 const nearestPanel = (position) => {
@@ -386,7 +390,9 @@ const revealObserver = new IntersectionObserver((entries) => {
     const section = entry.target;
     const video = section.querySelector('[data-reveal-video]');
 
-    if (entry.intersectionRatio >= REVEAL_RATIO && !section.classList.contains('is-visible')) {
+    const ratio = Number(section.dataset.revealRatio) || REVEAL_RATIO;
+
+    if (entry.intersectionRatio >= ratio && !section.classList.contains('is-visible')) {
       section.classList.add('is-visible');
       section.dispatchEvent(new Event('reveal-enter'));
       if (video) {
@@ -401,7 +407,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, {
   rootMargin: `-${topbar.offsetHeight + 2}px 0px -2px 0px`,
-  threshold: [0, REVEAL_RATIO],
+  threshold: [0, REVEAL_RATIO, LATE_REVEAL_RATIO],
 });
 
 document.querySelectorAll('[data-reveal]').forEach((section) => revealObserver.observe(section));
