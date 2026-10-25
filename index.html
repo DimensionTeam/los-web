@@ -1,0 +1,324 @@
+<!--
+  Coded by: Maksieku
+  Designed by: me
+  Motion Videos: yet again, me (maksieku)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LunariaOS</title>
+  <link rel="icon" type="image/svg+xml" href="logos/los_favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    try {
+      if (localStorage.getItem('lunaria-theme') === 'dark') document.documentElement.classList.add('theme-dark');
+      if (sessionStorage.getItem('lunaria-skip-intro')) {
+        sessionStorage.removeItem('lunaria-skip-intro');
+        document.documentElement.classList.add('no-intro');
+      }
+    } catch (error) {}
+  </script>
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-team" viewBox="0 0 24 24"><circle cx="12" cy="7.2" r="3.3"/><path d="M5.6 20c0-3.9 2.8-6.6 6.4-6.6s6.4 2.7 6.4 6.6z"/><circle cx="4.9" cy="9.3" r="2.4"/><path d="M0.4 18.8c0-2.8 1.8-4.7 4.3-4.9a8.6 8.6 0 0 0-1.6 4.9v.4H.4z"/><circle cx="19.1" cy="9.3" r="2.4"/><path d="M23.6 18.8c0-2.8-1.8-4.7-4.3-4.9a8.6 8.6 0 0 1 1.6 4.9v.4h2.7z"/></symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    <symbol id="icon-discord" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></symbol>
+    <symbol id="icon-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+    <symbol id="icon-kofi" viewBox="0 0 24 24"><path d="M11.351 2.715c-2.7 0-4.986.025-6.83.26C2.078 3.285 0 5.154 0 8.61c0 3.506.182 6.13 1.585 8.493 1.584 2.701 4.233 4.182 7.662 4.182h.83c4.209 0 6.494-2.234 7.637-4a9.5 9.5 0 0 0 1.091-2.338C21.792 14.688 24 12.22 24 9.208v-.415c0-3.247-2.13-5.507-5.792-5.87-1.558-.156-2.65-.208-6.857-.208m0 1.947c4.208 0 5.09.052 6.571.182 2.624.311 4.13 1.584 4.13 4v.39c0 2.156-1.792 3.844-3.87 3.844h-.935l-.156.649c-.208 1.013-.597 1.818-1.039 2.546-.909 1.428-2.545 3.064-5.922 3.064h-.805c-2.571 0-4.831-.883-6.078-3.195-1.09-2-1.298-4.155-1.298-7.506 0-2.181.857-3.402 3.012-3.714 1.533-.233 3.559-.26 6.39-.26m6.547 2.287c-.416 0-.65.234-.65.546v2.935c0 .311.234.545.65.545 1.324 0 2.051-.754 2.051-2s-.727-2.026-2.052-2.026m-10.39.182c-1.818 0-3.013 1.48-3.013 3.142 0 1.533.858 2.857 1.949 3.897.727.701 1.87 1.429 2.649 1.896a1.47 1.47 0 0 0 1.507 0c.78-.467 1.922-1.195 2.623-1.896 1.117-1.039 1.974-2.364 1.974-3.897 0-1.662-1.247-3.142-3.039-3.142-1.065 0-1.792.545-2.338 1.298-.493-.753-1.246-1.298-2.312-1.298"/></symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <a class="logo" href="#">
+      <img class="logo-img logo-general" src="logos/lunariaos_general_logo.svg" alt="LunariaOS">
+      <img class="logo-img logo-white" src="logos/lunariaos_white_logo.svg" alt="">
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="topbar-menu">
+      <span class="menu-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <div class="topbar-menu" id="topbar-menu">
+      <nav class="nav" aria-label="Main navigation">
+        <button class="nav-btn" type="button" data-target="introduction" aria-current="true">Introduction</button>
+        <button class="nav-btn" type="button" data-target="overview">Overview</button>
+        <button class="nav-btn" type="button" data-target="experience">The Experience</button>
+        <button class="nav-btn" type="button" data-target="download">Download</button>
+      </nav>
+
+      <div class="socials">
+        <a class="social-btn social-btn--page" href="team.html" aria-label="The team">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-team"/></svg>
+        </a>
+        <a class="social-btn social-btn--page" href="faq.html" aria-label="Frequently asked questions">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><mask id="faq-icon-mask"><path fill="#fff" d="M5 2.5h14A3.5 3.5 0 0 1 22.5 6v9.5a3.5 3.5 0 0 1-3.5 3.5h-8.2l-4.9 3.6c-.7.5-1.6 0-1.6-.8V19a3.5 3.5 0 0 1-2.8-3.5V6A3.5 3.5 0 0 1 5 2.5z"/><path d="M9.6 8.4a2.5 2.5 0 0 1 4.9.7c0 1.7-2.5 2.1-2.5 3.6" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="15.5" r="1.3" fill="#000"/></mask><rect width="24" height="24" fill="currentColor" mask="url(#faq-icon-mask)"/></svg>
+        </a>
+        <span class="socials-divider" aria-hidden="true"></span>
+        <a class="social-btn" href="https://www.youtube.com/@ameosbydimension" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-youtube"/></svg>
+        </a>
+        <a class="social-btn" href="https://discord.gg/k6UEKpXW3" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-discord"/></svg>
+        </a>
+        <a class="social-btn" href="https://x.com/LunariaOS" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+        </a>
+        <a class="social-btn" href="https://www.tiktok.com/@lunariaos" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-tiktok"/></svg>
+        </a>
+        <a class="social-btn" href="https://github.com/DimensionTeam" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg>
+        </a>
+        <a class="social-btn social-btn--donate" href="https://ko-fi.com/lunariaos" target="_blank" rel="noopener noreferrer" aria-label="Donate on Ko-fi">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-kofi"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel hero" id="introduction" data-reveal>
+      <div class="hero-text">
+        <h1 class="hero-title">This is<br>LunariaOS.</h1>
+        <p class="hero-subtitle">A new Linux distribution built on Debian.</p>
+        <div class="hero-actions">
+          <a class="btn btn-explore" href="#overview">
+            <span class="btn-dots" aria-hidden="true"></span>
+            <span class="btn-label">Explore Features</span>
+          </a>
+          <a class="btn btn-donate" href="https://ko-fi.com/lunariaos" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-kofi"/></svg>
+            <span class="btn-label">Donate</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <video class="hero-video" data-src="videos/introduction/startanimation.mp4" aria-label="LunariaOS on a laptop" autoplay muted loop playsinline preload="auto" data-reveal-video></video>
+      </div>
+
+      <div class="scroll-hint">
+        <span class="scroll-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 48" focusable="false">
+            <path d="M3.6 8.4L12 15.6L20.4 8.4"/>
+            <path d="M3.6 32.4L12 39.6L20.4 32.4"/>
+          </svg>
+        </span>
+        <span class="scroll-text">Scroll to continue</span>
+        <span class="scroll-text scroll-text--mobile">Get Started</span>
+      </div>
+    </section>
+
+    <section class="panel showcase" id="overview" data-reveal>
+      <div class="showcase-head">
+        <h2 class="showcase-title reveal">A brand new and unique design.</h2>
+        <p class="showcase-subtitle reveal">Meet beautifully designed apps and components created with love. Equipped with lively animations across the OS, with User Experience in mind.</p>
+      </div>
+      <div class="showcase-media reveal">
+        <video class="showcase-video" data-src="videos/overview/newuniquedsg.mp4" aria-label="LunariaOS desktop preview" autoplay muted loop playsinline data-reveal-video></video>
+      </div>
+      <p class="showcase-note reveal">*Apps and animations are simulated*</p>
+    </section>
+
+    <section class="panel showcase showcase--fluidity" id="fluidity" data-nav="overview" data-reveal>
+      <div class="showcase-head">
+        <h2 class="showcase-title reveal">Unmatched fluidity.</h2>
+        <p class="showcase-subtitle reveal">LunariaOS provides smooth visuals with subtle animations, running efficiently on minimal RAM and CPU for fast, reliable performance.</p>
+      </div>
+      <div class="showcase-media reveal">
+        <video class="showcase-video" data-src="videos/overview/unmatchedfluidity.mp4" aria-label="LunariaOS calculator and taskbar preview" autoplay muted loop playsinline data-reveal-video></video>
+      </div>
+      <p class="showcase-note reveal">*Apps and animations are simulated*</p>
+    </section>
+
+    <section class="panel showcase showcase--experience" id="experience" data-reveal>
+      <h2 class="showcase-title reveal">See the experience:</h2>
+      <p class="showcase-subtitle reveal">Here’s a closer look at the new experience with LunariaOS.</p>
+
+      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="LunariaOS experience">
+        <div class="carousel-stage reveal">
+          <div class="carousel-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <video class="slide-video" data-src="videos/experience/experience2.mp4" muted loop playsinline preload="metadata"></video>
+          </div>
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <video class="slide-video" data-src="videos/experience/experience1.mp4" muted loop playsinline preload="metadata"></video>
+          </div>
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <video class="slide-video" data-src="videos/experience/experience3.mp4" muted loop playsinline preload="metadata"></video>
+          </div>
+          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <video class="slide-video" data-src="videos/experience/experience4.mp4" muted loop playsinline preload="metadata"></video>
+          </div>
+        </div>
+
+        <div class="carousel-captions reveal" aria-live="off">
+          <div class="carousel-caption is-active">
+            <h3 class="caption-title">Our Lock Screen is different than the others.</h3>
+            <p class="caption-text">Out of the box, you can customize the lock screen in many ways.</p>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="caption-title">Brand new, carefully crafted wallpaper backgrounds</h3>
+            <p class="caption-text">Our wallpapers beautifully adjust to your PC, with lively animations.</p>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="caption-title">Small, expressive and lively animations</h3>
+            <p class="caption-text">Every single small component has its own gorgeously animated icons.</p>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="caption-title">Expanded Multi-Tasking</h3>
+            <p class="caption-text">Manage every single active app window with just a single keybind.</p>
+          </div>
+        </div>
+
+        <div class="carousel-nav reveal">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="carousel-pills">
+            <button class="carousel-pill" type="button" aria-label="Go to slide 1"><span class="pill-track"><span class="pill-fill"></span></span></button>
+            <button class="carousel-pill" type="button" aria-label="Go to slide 2"><span class="pill-track"><span class="pill-fill"></span></span></button>
+            <button class="carousel-pill" type="button" aria-label="Go to slide 3"><span class="pill-track"><span class="pill-fill"></span></span></button>
+            <button class="carousel-pill" type="button" aria-label="Go to slide 4"><span class="pill-track"><span class="pill-fill"></span></span></button>
+          </div>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel showcase showcase--features" id="features" data-nav="experience" data-reveal>
+      <h2 class="showcase-title reveal">LunariaOS brings many features</h2>
+      <p class="showcase-subtitle reveal">And even more of them coming later!</p>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <div class="feature-media" role="group" tabindex="0" aria-label="Preview video: Meet Index">
+            <video class="feature-video" data-src="videos/morefeatures/meetindex.mp4" muted loop playsinline preload="auto"></video>
+            <div class="feature-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><use href="#icon-pause"/></svg>
+              <span class="hint-hover">Hover to play</span>
+              <span class="hint-tap">Tap to play</span>
+            </div>
+          </div>
+          <h3 class="feature-title">Meet Index</h3>
+          <p class="feature-text">Index can help you search for any files stored <span class="nowrap">on your disk instantly,</span> without a single stutter.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-media" role="group" tabindex="0" aria-label="Preview video: The Activity Bar">
+            <video class="feature-video" data-src="videos/morefeatures/multitask.mp4" muted loop playsinline preload="auto"></video>
+            <div class="feature-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><use href="#icon-pause"/></svg>
+              <span class="hint-hover">Hover to play</span>
+              <span class="hint-tap">Tap to play</span>
+            </div>
+          </div>
+          <h3 class="feature-title">The Activity Bar</h3>
+          <p class="feature-text">The Bar speeds work by managing tasks in a small capsule, like changing Music (and more)</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-media" role="group" tabindex="0" aria-label="Preview video: Your PC, your OS.">
+            <video class="feature-video" data-src="videos/morefeatures/wallpapers.mp4" muted loop playsinline preload="auto"></video>
+            <div class="feature-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><use href="#icon-pause"/></svg>
+              <span class="hint-hover">Hover to play</span>
+              <span class="hint-tap">Tap to play</span>
+            </div>
+          </div>
+          <h3 class="feature-title">Your PC, your OS.</h3>
+          <p class="feature-text">Create your own customized Lock Screen to make your PC feel like you.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-media" role="group" tabindex="0" aria-label="Preview video: Any Windows app support">
+            <div class="video-placeholder">Feature video 4</div>
+            <video class="feature-video" data-src="videos/morefeatures/lunariawindows.mp4" muted loop playsinline preload="auto"></video>
+            <div class="feature-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><use href="#icon-pause"/></svg>
+              <span class="hint-hover">Hover to play</span>
+              <span class="hint-tap">Tap to play</span>
+            </div>
+          </div>
+          <h3 class="feature-title">Any Windows app support <span class="info-tip"><button class="info-tip-btn" type="button" aria-label="More about Windows app support" aria-describedby="wine-tip">?</button><span class="info-tip-bubble" id="wine-tip" role="tooltip">Wine isn’t confirmed as the compatibility layer for Windows apps yet. This may change in the future.</span></span></h3>
+          <p class="feature-text">You can run any Windows app with built-in <span class="nowrap">Wine out-of-the-box.</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel download" id="download" data-reveal>
+      <div class="eclipses" aria-hidden="true">
+        <img class="eclipse eclipse-3" src="download/Eclipse3.svg" alt="" data-ring="1680 840 629 780 569">
+        <img class="eclipse eclipse-2" src="download/Eclipse2.svg" alt="" data-ring="1334 666.7 499.7 614.5 447.5">
+        <img class="eclipse eclipse-1" src="download/Eclipse1.svg" alt="" data-ring="1196 597.7 388.2 545.5 336">
+      </div>
+
+      <div class="download-head">
+        <h2 class="download-title reveal">Get <img class="download-logo" src="logos/lunariaos_general_logo.svg" alt="LunariaOS"></h2>
+        <p class="download-text reveal">LunariaOS is not officially out yet. We still have a long way to go. If you want to be up to date with every new update about this OS, join our Server!</p>
+      </div>
+
+      <div class="download-actions reveal">
+        <a class="btn btn-discord" href="https://discord.gg/k6UEKpXW3" target="_blank" rel="noopener noreferrer">
+          <span class="btn-dots" aria-hidden="true"></span>
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-discord"/></svg>
+          <span class="btn-label">Join the Discord Server</span>
+        </a>
+        <a class="btn btn-donate btn-donate--light" href="https://ko-fi.com/lunariaos" target="_blank" rel="noopener noreferrer">
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-kofi"/></svg>
+          <span class="btn-label">Donate</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-credit">Made with love by the Dimension Team</p>
+      <p class="footer-legal">© 2026 LunariaOS. All rights reserved. LunariaOS, the LunariaOS logo, Dimension and the Dimension Team logo are copyrighted. Other brands or product names are the trademarks of their respective owners. Our websites may contain links to other sites and resources provided by third parties. These links are provided for your convenience only. LunariaOS has no control over the contents of those sites or resources, and accepts no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+      <div class="footer-bottom">
+        <div class="footer-brand">
+          <button class="footer-logo-btn" type="button" aria-label="Dimension Team">
+            <img class="footer-logo" src="logos/dimension.svg" alt="">
+          </button>
+          <img class="footer-love" src="logos/madewithlove.svg" alt="" aria-hidden="true">
+        </div>
+        <div class="footer-socials">
+          <a class="social-btn" href="https://x.com/LunariaOS" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+          </a>
+          <a class="social-btn" href="https://discord.gg/k6UEKpXW3" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-discord"/></svg>
+          </a>
+          <a class="social-btn" href="https://www.youtube.com/@ameosbydimension" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-youtube"/></svg>
+          </a>
+          <a class="social-btn" href="https://www.tiktok.com/@lunariaos" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-tiktok"/></svg>
+          </a>
+          <a class="social-btn" href="https://github.com/DimensionTeam" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-github"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="donate-modal" id="donate-modal" aria-hidden="true">
+    <div class="donate-dialog" role="dialog" aria-modal="true" aria-labelledby="donate-title" aria-describedby="donate-text">
+      <img class="donate-icon" src="logos/moedonate.svg" alt="">
+      <h2 class="donate-title" id="donate-title">Want to donate to us?</h2>
+      <p class="donate-text" id="donate-text">Your donation helps LunariaOS grow and support everyone involved in the project. All contributions go straight to the team, without exception.</p>
+      <a class="donate-confirm" href="https://ko-fi.com/lunariaos" target="_blank" rel="noopener noreferrer">Redirect to Ko-Fi</a>
+      <button class="donate-dismiss" type="button">Maybe next time...</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
